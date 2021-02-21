@@ -3,9 +3,14 @@ package com.company;
 //  每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
 //  注意：给定 n 是一个正整数
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class climbStairs70 {
     private static int count = 0;
-//    思路一 试试递归,反正这么长一段路，走一步走两步都可以，直到最后还剩下一两步的时候 就说明走到头了，算是一次成功
+    static Map map = new HashMap<>();
+
+    //    思路一 试试递归,反正这么长一段路，走一步走两步都可以，直到最后还剩下一两步的时候 就说明走到头了，算是一次成功
 //    不知道为什么评测机过不了 是因为没有初始化全局变量
 //    但是其实也可以不用递归 开三个变量去解决问题
     public static int solution1(int n){
@@ -70,6 +75,25 @@ public class climbStairs70 {
         }
         return dp[n];
 }
+
+//思路4 用map空间换时间 其实跟数组差不多
+    public int solution4(int n) {
+        if(n<3)
+            return n;
+        else {
+            int x,y;
+            if((map.get(n-1) != null) &&(map.get(n-2) != null)){
+                x = (int) map.get(n-1);
+                y= (int) map.get(n-2);
+            }else {
+                x = solution4(n-1);
+                y = solution4(n-2);
+                map.put(n-1,x);
+                map.put(n-2,y);
+            }
+            return x+y;
+        }
+    }
 
 
     public static void main(String[] args) {
