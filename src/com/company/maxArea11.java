@@ -5,8 +5,8 @@ public class maxArea11 {
 //    在坐标内画 n 条垂直线，垂直线 i 的两个端点分别为 (i, ai) 和 (i, 0) 。
 //    找出其中的两条线，使得它们与 x 轴共同构成的容器可以容纳最多的水。
 
-//    思路一 暴力法 就两个for循环加上个max值完事儿
     public static int solution1(int[] height){
+        //    思路一 暴力法 就两个for循环加上个max值完事儿
         int max = 0;
 //        i j 不应该重复
         for (int i = 0; i < height.length-1;i++){

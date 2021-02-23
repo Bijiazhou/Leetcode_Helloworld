@@ -40,29 +40,30 @@ public class moveZeros283 {
 
 
 
-    //思路3 冒泡排序 这个就是说 我只针对0和非0进行排序 暂时还不明白 没事儿
-        public static void solution3(int[] nums) {
-            boolean swapped = true;
-            for(int i=0; i<nums.length-1; i++) {
-                if(!swapped)
-                    break;
-                swapped = false;
-                for(int j=0; j<nums.length-1-i; j++) {
-                    if(nums[j] == 0) {
-                        nums[j+1] = nums[j] + nums[j+1];
-                        nums[j] = nums[j+1] - nums[j];
-                        nums[j+1] = nums[j+1] - nums[j];
-                        swapped = true;
-                    }
+    public static void solution3(int[] nums) {
+        //思路3 冒泡排序 这个就是说 我只针对0和非0进行排序 暂时还不明白 没事儿
+
+        boolean swapped = true;
+        for(int i=0; i<nums.length-1; i++) {
+            if(!swapped)
+                break;
+            swapped = false;
+            for(int j=0; j<nums.length-1-i; j++) {
+                if(nums[j] == 0) {
+                    nums[j+1] = nums[j] + nums[j+1];
+                    nums[j] = nums[j+1] - nums[j];
+                    nums[j+1] = nums[j+1] - nums[j];
+                    swapped = true;
                 }
             }
         }
+    }
 
-        public static void printList(int[] nums){
-            for (int num : nums) {
-                System.out.println(num);
-            }
+    public static void printList(int[] nums){
+        for (int num : nums) {
+            System.out.println(num);
         }
+    }
 
     public static void main(String[] args) {
         int[] nums = {1,0,2,0,3,4,0,5};
