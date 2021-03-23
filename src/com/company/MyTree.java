@@ -212,6 +212,6 @@ public class MyTree {
 //        for (Integer e : slotion.list){
 //            System.out.println(e);
 //        }
-        slotion.dfs_not_resu(root);
+        slotion.dfs_resu(root);
     }
 }

@@ -96,6 +96,30 @@ public class climbStairs70 {
     }
 
 
+//    自己尝试用递归实现
+    public int climbStairs5(int n) {
+        HashMap<Integer,Integer> map = new HashMap<Integer,Integer>();
+        return  climbStairs_helper(n,map);
+    }
+
+    public int climbStairs_helper(int n,HashMap<Integer,Integer> map) {
+
+//        终止条件
+        if (n == 1) return 1;
+        if (n == 2) return 2;
+
+//        处理
+        if (map.containsKey(n))
+            return map.get(n);
+        else {
+//            下一层
+            int val = climbStairs_helper(n - 1, map) +
+                    climbStairs_helper(n - 2, map);
+            map.put(n, val);
+            return val;
+        }
+    }
+
     public static void main(String[] args) {
         count = 0;
         int n  = 4;
